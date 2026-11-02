@@ -1,2 +1,2 @@
-export * from './compiled-types/index';
-export { default } from './compiled-types/index';
+export * from './compiled-types/components/ProviderComponent';
+export { default } from './compiled-types/components/ProviderComponent';
