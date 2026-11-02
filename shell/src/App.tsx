@@ -1,12 +1,14 @@
-import './App.css';
-import Provider from 'provider';
+import './App.css'
+import Header from 'header'
+import Products from 'products'
 
 const App = () => {
   return (
     <div className="content">
-      <Provider />
+      <Header />
+      <Products />
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
