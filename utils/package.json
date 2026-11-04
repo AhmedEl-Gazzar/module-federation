@@ -20,18 +20,21 @@
     "mf-dev": "rslib mf-dev"
   },
   "devDependencies": {
+    "@module-federation/rsbuild-plugin": "^2.9.3",
     "@rsbuild/core": "2.1.4",
     "@rsbuild/plugin-react": "^2.1.0",
     "@rslib/core": ">=0.23.2",
+    "@types/node": "^22.13.9",
     "@types/react": "^18.3.11",
     "react": "^18.3.1",
-    "typescript": "^5.7.3",
-    "@types/node": "^22.13.9",
-    "@module-federation/rsbuild-plugin":"^2.9.3",
-    "rsbuild-plugin-publint": "^0.2.1"
+    "rsbuild-plugin-publint": "^0.2.1",
+    "typescript": "^5.7.3"
   },
   "peerDependencies": {
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
+  },
+  "dependencies": {
+    "@module-federation/enhanced": "^2.9.3"
   }
 }
