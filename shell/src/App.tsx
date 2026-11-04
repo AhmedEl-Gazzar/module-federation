@@ -1,34 +1,41 @@
 import './App.css'
+import React, { useEffect, useState } from 'react'
 import Header from 'header'
 import Products from 'products'
+import { loadRemote } from '@module-federation/enhanced/runtime'
 
-import {
-  registerRemotes,
-  loadRemote,
-} from '@module-federation/enhanced/runtime'
+type Add = (a: number, b: number) => number
 
-registerRemotes([
-  {
-    name: 'utils',
-    entry: 'http://localhost:3003/mf-manifest.json',
-  },
-])
-
-let add: ((a: number, b: number) => number) | null = null
-
-await loadRemote<{ add: (a: number, b: number) => number }>('utils/add').then(
-  module => {
-    if (!module) return
-    add = module.add
-  },
-)
+const RemoteButton = React.lazy(async () => {
+  const module = await loadRemote<{ default: React.FC }>('utils/button')
+  if (!module?.default) {
+    throw new Error('Failed to load utils/button')
+  }
+  return { default: module.default }
+})
 
 const App = () => {
-  console.log('2 + 3 =', add?.(2, 3))
+  const [add, setAdd] = useState<Add>()
+
+  useEffect(() => {
+    loadRemote<{ add: Add }>('utils/add')
+      .then(module => {
+        if (!module) {
+          throw new Error('Failed to load utils/add')
+        }
+        setAdd(() => module.add)
+      })
+      .catch(error => console.error('Failed to load utils/add', error))
+  }, [])
+
   return (
     <div className="content">
       <Header collapse={true} />
       <Products />
+      <p>2 + 3 = {add ? add(2, 3) : 'loading...'}</p>
+      <React.Suspense fallback="Loading Button">
+        <RemoteButton />
+      </React.Suspense>
     </div>
   )
 }

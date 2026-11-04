@@ -6,6 +6,7 @@ export default createModuleFederationConfig({
   exposes: {
     '.': './src/index.tsx',
     './add': './src/add.ts',
+    './button': './src/button.tsx',
   },
   shared: {
     react: {
