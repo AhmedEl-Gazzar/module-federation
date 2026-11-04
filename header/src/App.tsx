@@ -4,7 +4,7 @@ import Header from './components/Header';
 const App = () => {
   return (
     <div className="content">
-      <Header />
+      <Header collapse={false} />
     </div>
   );
 };

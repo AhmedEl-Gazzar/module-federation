@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import './Header.css';
+import React, { useState } from 'react'
+import './Header.css'
 
-const Header: React.FC = () => {
-  const [cartCount] = useState(3);
+const Header: React.FC<{ collapse: boolean }> = ({ collapse }) => {
+  const [cartCount] = useState(3)
 
   return (
     <header className="header">
@@ -11,14 +11,23 @@ const Header: React.FC = () => {
         <a href="/" className="header__logo">
           <span className="header__logo-icon">🛍️</span>
           <span className="header__logo-text">Horizon</span>
+          <span style={{ rotate: collapse ? '180deg' : '0deg' }}>⬆️</span>
         </a>
 
         {/* Nav */}
         <nav className="header__nav">
-          <a href="/" className="header__nav-link">Home</a>
-          <a href="/shop" className="header__nav-link">Shop</a>
-          <a href="/deals" className="header__nav-link">Deals</a>
-          <a href="/about" className="header__nav-link">About</a>
+          <a href="/" className="header__nav-link">
+            Home
+          </a>
+          <a href="/shop" className="header__nav-link">
+            Shop
+          </a>
+          <a href="/deals" className="header__nav-link">
+            Deals
+          </a>
+          <a href="/about" className="header__nav-link">
+            About
+          </a>
         </nav>
 
         {/* Actions */}
@@ -47,7 +56,7 @@ const Header: React.FC = () => {
         </div>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

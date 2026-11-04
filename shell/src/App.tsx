@@ -5,7 +5,7 @@ import Products from 'products'
 const App = () => {
   return (
     <div className="content">
-      <Header />
+      <Header collapse={true} />
       <Products />
     </div>
   )
