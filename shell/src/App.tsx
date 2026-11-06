@@ -16,6 +16,7 @@ const RemoteButton = React.lazy(async () => {
 
 const App = () => {
   const [add, setAdd] = useState<Add>()
+  const [toggle, setToggle] = useState(false)
 
   useEffect(() => {
     loadRemote<{ add: Add }>('utils/add')
@@ -31,11 +32,14 @@ const App = () => {
   return (
     <div className="content">
       <Header collapse={true} />
+      <button onClick={() => setToggle(!toggle)}>Toggle</button>
+      {toggle && (
+        <React.Suspense fallback="Loading Button">
+          <RemoteButton />
+        </React.Suspense>
+      )}
       <Products />
-      <p>2 + 3 = {add ? add(2, 3) : 'loading...'}</p>
-      <React.Suspense fallback="Loading Button">
-        <RemoteButton />
-      </React.Suspense>
+      <p>Remote add function: 2 + 3 = {add ? add(2, 3) : 'loading...'}</p>
     </div>
   )
 }
