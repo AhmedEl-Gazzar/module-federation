@@ -1,0 +1,12 @@
+{
+  "name": "module-federation-root",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -k -n shell,header,products,utils -c cyan,green,magenta,yellow \"npm --prefix shell run dev\" \"npm --prefix header run dev\" \"npm --prefix products run dev\" \"npm --prefix utils run mf-dev\"",
+    "build": "concurrently -k -n shell,header,products,utils -c cyan,green,magenta,yellow \"npm --prefix shell run build\" \"npm --prefix header run build\" \"npm --prefix products run build\" \"npm --prefix utils run build\"",
+    "dev:utils": "npm --prefix utils run mf-dev"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
