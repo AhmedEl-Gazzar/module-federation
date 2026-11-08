@@ -1,4 +1,5 @@
 import { createModuleFederationConfig } from '@module-federation/rsbuild-plugin'
+import path from 'path'
 
 export default createModuleFederationConfig({
   name: 'shell',
@@ -11,4 +12,13 @@ export default createModuleFederationConfig({
     react: { singleton: true },
     'react-dom': { singleton: true },
   },
+  runtimePlugins: [
+    [
+      path.resolve(__dirname, './plugin.ts'),
+      {
+        fromHost: 'registry.example.com',
+        toHost: 'cdn.example.com',
+      },
+    ],
+  ],
 })
