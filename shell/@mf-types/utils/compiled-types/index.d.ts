@@ -1,4 +1,8 @@
 import React from 'react';
 import './index.css';
-declare const Provider: React.FC;
+import type { Data } from './index.data';
+type ProviderProps = {
+    mfData?: Data;
+};
+declare const Provider: React.FC<ProviderProps>;
 export default Provider;

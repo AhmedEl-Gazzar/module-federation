@@ -1,17 +1,26 @@
 import React from 'react';
 import './index.css';
+import type { Data } from './index.data';
 
-const Provider: React.FC = () => {
+type ProviderProps = {
+  mfData?: Data;
+};
+
+const Provider: React.FC<ProviderProps> = ({ mfData }) => {
   return (
     <div className="container">
-      <div className="icon-container">
-        <img
-          src="https://module-federation.io/svg.svg"
-          alt="logo"
-          className="logo-image"
-        />
-      </div>
-      <h1 className="title">Hello Module Federation 2.0</h1>
+      
+      <h1 className="title">Data Fetching Test</h1>
+      <p className="data-line">
+        {mfData
+          ? `${mfData.message} (loaded at ${mfData.fetchedAt})`
+          : 'Rendered without mfData'}
+      </p>
+      {mfData?.params && (
+        <pre className="data-params">
+          loader params: {JSON.stringify(mfData.params)}
+        </pre>
+      )}
     </div>
   );
 };

@@ -8,12 +8,13 @@
     "preview": "rsbuild preview"
   },
   "dependencies": {
+    "@module-federation/bridge-react": "^2.9.3",
     "@module-federation/enhanced": "^2.9.3",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
   },
   "devDependencies": {
-    "@module-federation/rsbuild-plugin": "^2.9.2",
+    "@module-federation/rsbuild-plugin": "^2.9.3",
     "@rsbuild/core": "2.1.4",
     "@rsbuild/plugin-react": "^2.1.0",
     "@types/node": "^26.6.6",

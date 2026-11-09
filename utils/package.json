@@ -37,6 +37,7 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
+    "@module-federation/bridge-react": "^2.9.3",
     "@module-federation/enhanced": "^2.9.3"
   }
 }

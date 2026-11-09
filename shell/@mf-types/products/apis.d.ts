@@ -1,3 +1,1 @@
-
-    export type RemoteKeys = 'products';
-    type PackageType<T> = T extends 'products' ? typeof import('products') :any;
+<!DOCTYPE html><html><head><title>Rsbuild App</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><script defer src="http://localhost:3002/static/js/vendors-node_modules_rsbuild_core_dist_client_overlay_js-node_modules_rspack_plugin-react-ref-d7d6b1.js"></script><script defer src="http://localhost:3002/static/js/index.js"></script></head><body><div id="root"></div></body></html>
